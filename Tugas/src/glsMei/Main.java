@@ -23,6 +23,8 @@ public class Main {
 		String active = "Y";
 		do {
 			clear();
+			System.out.println("+---------------------------+");
+			System.out.println("| -+- Character Manager -+- |");
 			System.out.println("+----+----------------------+");
 			System.out.println("| ID |          Name        |");
 			System.out.println("+----+----------------------+");
@@ -36,7 +38,8 @@ public class Main {
 			do {
 				System.out.print("Input Command < Info | Cook | Drive | Work | Paint > < ID > : ");
 				command = scan.nextLine();
-			} while (!command.contains(" "));
+			} while (!command.startsWith("Info ") && !command.startsWith("Cook ") && !command.startsWith("Drive") 
+					&& !command.startsWith("Work ") && !command.startsWith("Paint "));
 
 			String action = command.substring(0, command.indexOf(" "));
 			String characterID = command.substring(command.indexOf(" "));
@@ -90,15 +93,12 @@ public class Main {
 
 					break;
 				}
-				default: {
-					System.out.println("Aksi tidak dapat ditemukan");
-					break;
-				}
 				}
 			}
 			System.out.print("\n\nInput <N> to exit the program: ");
 			active = scan.nextLine();
 		} while (!active.equalsIgnoreCase("N"));
+		System.out.println("Thanks for using the program ^_^");
 	}
 
 	public static void main(String[] args) {
