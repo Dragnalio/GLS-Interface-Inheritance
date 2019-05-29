@@ -42,7 +42,12 @@ public class Main {
 			String characterID = command.substring(command.indexOf(" "));
 
 			System.out.println("");
-			for (int i = 1; i < characterID.length(); i += 2) {
+			for (int i = 1; i < characterID.length(); i++) {
+				if(characterID.charAt(i)<'0' || characterID.charAt(i)>'9') continue;
+				if(characterID.charAt(i)>='0'+list.size()) {
+					System.out.println("Character not found");
+					continue;
+				}
 				Integer id = Integer.parseInt(characterID.substring(i, i + 1));
 				switch (action) {
 				case "Info": {
